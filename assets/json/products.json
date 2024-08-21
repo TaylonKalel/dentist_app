@@ -1,0 +1,96 @@
+{
+    "status": true,
+    "list": [
+        {
+            "title": "Condifionador Ácido Fosfórico 37% - AllPrime",
+            "description": "Escova de dentes com cerdas macias para limpeza suave.",
+            "price": 22.90,
+            "max_installments": 2,
+            "date_added": "2024-08-10",
+            "is_new": true,
+            "image": "https://via.placeholder.com/300x450"
+        },
+        {
+            "title": "Condifionador Ácido Fosfórico 37% - AllPrime",
+            "description": "Creme dental com proteção completa e flúor.",
+            "price": 3.50,
+            "max_installments": 1,
+            "discount": 10,
+            "date_added": "2024-08-08",
+            "is_new": true,
+            "image": "https://via.placeholder.com/300x450"
+        },
+        {
+            "title": "Condifionador Ácido Fosfórico 37% - AllPrime Condifionador Ácido Fosfórico 37% - AllPrime Enxaguante Bucal Listerine Cool Mint",
+            "description": "Enxaguante bucal para hálito fresco e proteção contra germes.",
+            "price": 12.90,
+            "max_installments": 3,
+            "date_added": "2024-08-05",
+            "is_new": false,
+            "image": "https://via.placeholder.com/300x450"
+        },
+        {
+            "title": "Fio Dental Johnson & Johnson",
+            "description": "Fio dental para remoção eficaz da placa bacteriana entre os dentes.",
+            "price": 6.99,
+            "max_installments": 2,
+            "date_added": "2024-08-01",
+            "is_new": false,
+            "image": "https://via.placeholder.com/300x450"
+        },
+        {
+            "title": "Kit Clareador Dental WhiteStrips",
+            "description": "Kit de tiras clareadoras para dentes mais brancos em poucos dias.",
+            "price": 59.90,
+            "max_installments": 5,
+            "date_added": "2024-08-11",
+            "is_new": true,
+            "image": "https://via.placeholder.com/300x450"
+        },
+        {
+            "title": "Gel Dental Sensodyne",
+            "description": "Gel dental para dentes sensíveis, proporcionando alívio da sensibilidade.",
+            "price": 24.90,
+            "max_installments": 4,
+            "date_added": "2024-07-30",
+            "is_new": false,
+            "image": "https://via.placeholder.com/300x450"
+        },
+        {
+            "title": "Escova Interdental TePe",
+            "description": "Escova interdental para limpeza entre os dentes e gengiva.",
+            "price": 14.50,
+            "max_installments": 3,
+            "date_added": "2024-08-03",
+            "is_new": true,
+            "image": "https://via.placeholder.com/300x450"
+        },
+        {
+            "title": "Antisséptico Bucal Cepacol",
+            "description": "Antisséptico bucal para proteção contra bactérias e mau hálito.",
+            "price": 9.90,
+            "max_installments": 2,
+            "date_added": "2024-08-09",
+            "is_new": true,
+            "image": "https://via.placeholder.com/300x450"
+        },
+        {
+            "title": "Creme Dental Sensodyne Repair & Protect",
+            "description": "Creme dental que repara e fortalece áreas sensíveis dos dentes.",
+            "price": 22.90,
+            "max_installments": 4,
+            "date_added": "2024-07-25",
+            "is_new": false,
+            "image": "https://via.placeholder.com/300x450"
+        },
+        {
+            "title": "Irrigador Oral Waterpik",
+            "description": "Irrigador oral para limpeza profunda e remoção de placa.",
+            "price": 199.90,
+            "max_installments": 6,
+            "date_added": "2024-07-20",
+            "is_new": false,
+            "image": "https://via.placeholder.com/300x450"
+        }
+    ]
+}

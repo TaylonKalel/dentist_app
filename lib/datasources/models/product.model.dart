@@ -1,0 +1,57 @@
+import 'package:dentist_app/datasources/models/abstract/from_json.abstratct.dart';
+
+class ProductModel extends FromJsonModel {
+  String? title;
+  String? description;
+  double? price;
+  double? newPrice;
+  int? maxInstallments;
+  int? discount;
+  double? monthlyValue;
+  String? dateAdded;
+  bool? isNew;
+  String? image;
+
+  ProductModel(
+      {this.title,
+      this.description,
+      this.price,
+      this.maxInstallments,
+      this.dateAdded,
+      this.monthlyValue,
+      this.isNew,
+      this.image});
+
+  ProductModel.fromJson(Map<String, dynamic> json) {
+    title = json['title'];
+    description = json['description'];
+    price = json['price'];
+    newPrice = price;
+    maxInstallments = json['max_installments'];
+    dateAdded = json['date_added'];
+    isNew = json['is_new'];
+    discount = json['discount'];
+    image = json['image'];
+    if (discount != null) {
+      newPrice = price! * ((100 - discount!) / 100);
+    }
+    if (newPrice != null && maxInstallments != null) {
+      monthlyValue = newPrice! / maxInstallments!;
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['title'] = title;
+    data['description'] = description;
+    data['price'] = price;
+    data['max_installments'] = maxInstallments;
+    data['date_added'] = dateAdded;
+    data['is_new'] = isNew;
+    data['image'] = image;
+    return data;
+  }
+
+  @override
+  fromJson(Map<String, dynamic> json) => ProductModel.fromJson(json);
+}
