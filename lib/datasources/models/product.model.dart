@@ -11,6 +11,7 @@ class ProductModel extends FromJsonModel {
   DateTime? dateAdded;
   bool? isNew;
   String? image;
+  String? category;
 
   ProductModel(
       {this.title,
@@ -20,7 +21,8 @@ class ProductModel extends FromJsonModel {
       this.dateAdded,
       this.monthlyValue,
       this.isNew,
-      this.image});
+      this.image,
+      this.category});
 
   ProductModel.fromJson(Map<String, dynamic> json) {
     title = json['title'];
@@ -30,6 +32,7 @@ class ProductModel extends FromJsonModel {
     maxInstallments = json['max_installments'];
     dateAdded = DateTime.tryParse(json['date_added']);
     isNew = json['is_new'];
+    category = json['category'];
     discount = json['discount'];
     image = json['image'];
     if (discount != null) {
@@ -48,6 +51,7 @@ class ProductModel extends FromJsonModel {
     data['max_installments'] = maxInstallments;
     data['date_added'] = dateAdded;
     data['is_new'] = isNew;
+    data['category'] = category;
     data['image'] = image;
     return data;
   }

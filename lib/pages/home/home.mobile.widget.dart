@@ -3,11 +3,12 @@ import 'package:dentist_app/components/list_products.component.dart';
 import 'package:dentist_app/components/loading.dart';
 import 'package:dentist_app/components/models/list_products.component.dart';
 import 'package:dentist_app/core/utils/is_same_day.dart';
-import 'package:dentist_app/pages/home/categories/category.page.dart';
+import 'package:dentist_app/pages/home/category/category.page.dart';
 import 'package:dentist_app/pages/home/home.store.dart';
 import 'package:dentist_app/widget/tabbar.widget.dart';
 import 'package:dentist_app/widget/text.widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 class HomeMobileWidget extends StatefulWidget {
   const HomeMobileWidget({super.key});
@@ -23,7 +24,7 @@ class _HomeMobileWidgetState extends State<HomeMobileWidget> {
   @override
   void initState() {
     super.initState();
-    _store = HomeStore();
+    _store = GetIt.instance<HomeStore>();
     _future = _store.getProducts();
   }
 

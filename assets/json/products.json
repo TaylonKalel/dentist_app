@@ -2,32 +2,35 @@
     "status": true,
     "list": [
         {
-            "title": "Condifionador Ácido Fosfórico 37% - AllPrime",
+            "title": "Condicionador Ácido Fosfórico 37% - AllPrime",
             "description": "Escova de dentes com cerdas macias para limpeza suave.",
             "price": 22.90,
             "max_installments": 2,
             "date_added": "2024-08-21",
             "is_new": true,
-            "image": "https://via.placeholder.com/300x450"
+            "image": "https://via.placeholder.com/300x450",
+            "category": "Produtos Odontológicos"
         },
         {
-            "title": "Condifionador Ácido Fosfórico 37% - AllPrime",
+            "title": "Condicionador Ácido Fosfórico 37% - AllPrime",
             "description": "Creme dental com proteção completa e flúor.",
             "price": 3.50,
             "max_installments": 1,
             "discount": 10,
             "date_added": "2024-08-21",
             "is_new": true,
-            "image": "https://via.placeholder.com/300x450"
+            "image": "https://via.placeholder.com/300x450",
+            "category": "Produtos Odontológicos"
         },
         {
-            "title": "Condifionador Ácido Fosfórico 37% - AllPrime Condifionador Ácido Fosfórico 37% - AllPrime Enxaguante Bucal Listerine Cool Mint",
+            "title": "Enxaguante Bucal Listerine Cool Mint",
             "description": "Enxaguante bucal para hálito fresco e proteção contra germes.",
             "price": 12.90,
             "max_installments": 3,
             "date_added": "2024-08-20",
             "is_new": false,
-            "image": "https://via.placeholder.com/300x450"
+            "image": "https://via.placeholder.com/300x450",
+            "category": "Higiene Bucal"
         },
         {
             "title": "Fio Dental Johnson & Johnson",
@@ -36,7 +39,8 @@
             "max_installments": 2,
             "date_added": "2024-08-20",
             "is_new": false,
-            "image": "https://via.placeholder.com/300x450"
+            "image": "https://via.placeholder.com/300x450",
+            "category": "Higiene Bucal"
         },
         {
             "title": "Kit Clareador Dental WhiteStrips",
@@ -45,7 +49,8 @@
             "max_installments": 5,
             "date_added": "2024-08-20",
             "is_new": true,
-            "image": "https://via.placeholder.com/300x450"
+            "image": "https://via.placeholder.com/300x450",
+            "category": "Branqueamento Dental"
         },
         {
             "title": "Gel Dental Sensodyne",
@@ -54,7 +59,8 @@
             "max_installments": 4,
             "date_added": "2024-07-30",
             "is_new": false,
-            "image": "https://via.placeholder.com/300x450"
+            "image": "https://via.placeholder.com/300x450",
+            "category": "Higiene Bucal"
         },
         {
             "title": "Escova Interdental TePe",
@@ -63,7 +69,8 @@
             "max_installments": 3,
             "date_added": "2024-08-03",
             "is_new": true,
-            "image": "https://via.placeholder.com/300x450"
+            "image": "https://via.placeholder.com/300x450",
+            "category": "Higiene Bucal"
         },
         {
             "title": "Antisséptico Bucal Cepacol",
@@ -72,7 +79,8 @@
             "max_installments": 2,
             "date_added": "2024-08-09",
             "is_new": true,
-            "image": "https://via.placeholder.com/300x450"
+            "image": "https://via.placeholder.com/300x450",
+            "category": "Higiene Bucal"
         },
         {
             "title": "Creme Dental Sensodyne Repair & Protect",
@@ -81,7 +89,8 @@
             "max_installments": 4,
             "date_added": "2024-07-25",
             "is_new": false,
-            "image": "https://via.placeholder.com/300x450"
+            "image": "https://via.placeholder.com/300x450",
+            "category": "Higiene Bucal"
         },
         {
             "title": "Irrigador Oral Waterpik",
@@ -90,7 +99,9 @@
             "max_installments": 6,
             "date_added": "2024-07-20",
             "is_new": false,
-            "image": "https://via.placeholder.com/300x450"
+            "image": "https://via.placeholder.com/300x450",
+            "category": "Acessórios de Higiene Bucal"
         }
     ]
+    
 }

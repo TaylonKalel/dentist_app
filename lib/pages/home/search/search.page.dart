@@ -55,6 +55,7 @@ class _SearchPageState extends State<SearchPage> {
               autofocus: true,
               focusNode: _store.focusNode,
               onChanged: _store.setSearching,
+              onEditingComplete: () => _store.searchProducts,
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
@@ -128,15 +129,6 @@ class _SearchPageState extends State<SearchPage> {
           Visibility(
               visible: _store.products.isEmpty && _store.search != null,
               child: Positioned.fill(child: notFount())),
-          // Visibility(
-          //     visible: _store.isVisibleRecentSearch,
-          //     maintainAnimation: true,
-          //     maintainState: true,
-          //     child: AnimatedOpacity(
-          //         duration: const Duration(milliseconds: 500),
-          //         curve: Curves.fastOutSlowIn,
-          //         opacity: _store.isVisibleRecentSearch ? 1 : 0,
-          //         child: Positioned.fill(child: recentSearchView()))),
           Visibility(
               visible: _store.isVisibleRecentSearch,
               child: Positioned.fill(child: recentSearchView())),
@@ -225,6 +217,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Widget _itemList(String item) {
     return ListTile(
+      onTap: () => _store.clickOnRecentView(item),
       leading: Icon(
         Icons.history,
         color: Colors.grey[500],

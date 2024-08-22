@@ -1,0 +1,25 @@
+{
+	"status": true,
+	"list": [
+		{
+			"category_id": 1,
+			"name": "Produtos Odontológicos",
+			"description": "Produtos destinados ao uso em procedimentos odontológicos, como condicionadores ácidos e materiais dentários."
+		},
+		{
+			"category_id": 2,
+			"name": "Higiene Bucal",
+			"description": "Produtos para a limpeza e cuidado da boca e dentes, como escovas, cremes dentais, enxaguantes bucais e fios dentais."
+		},
+		{
+			"category_id": 3,
+			"name": "Branqueamento Dental",
+			"description": "Produtos utilizados para clareamento dos dentes, como kits clareadores e tiras branqueadoras."
+		},
+		{
+			"category_id": 4,
+			"name": "Acessórios de Higiene Bucal",
+			"description": "Acessórios e dispositivos para a manutenção da higiene bucal, como irrigadores orais e escovas interdentais."
+		}
+	]
+}

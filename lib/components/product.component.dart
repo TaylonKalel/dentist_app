@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dentist_app/components/loading.dart';
-import 'package:dentist_app/formatters/currency.formatter.dart';
+import 'package:dentist_app/core/utils/formatters/currency.formatter.dart';
 import 'package:dentist_app/datasources/models/product.model.dart';
 import 'package:dentist_app/widget/text.widget.dart';
 import 'package:flutter/material.dart';

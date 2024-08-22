@@ -2,6 +2,7 @@ import 'package:dentist_app/datasources/models/product.model.dart';
 import 'package:dentist_app/datasources/repositories/product.repository.dart';
 import 'package:dentist_app/datasources/repositories/recent_search.repository.dart';
 import 'package:dentist_app/datasources/models/recent_search.model.dart';
+import 'package:dentist_app/loading.store.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
@@ -14,8 +15,9 @@ class SearchStore = _SearchStore with _$SearchStore;
 
 abstract class _SearchStore with Store {
   late final RecentSearchRepository _recentSearchRepository;
-
   late final ProductRepository _productRepository;
+
+  final LoadingStore loadingStore = GetIt.I();
 
   _SearchStore() {
     _recentSearchRepository = GetIt.instance<RecentSearchRepository>();
@@ -70,6 +72,12 @@ abstract class _SearchStore with Store {
   }
 
   @action
+  void clickOnRecentView(String value) {
+    search = value;
+    textSearchController.text = value;
+  }
+
+  @action
   void setIsVisibleRecentSearch(bool value) => isVisibleRecentSearch = value;
 
   @action
@@ -107,11 +115,26 @@ abstract class _SearchStore with Store {
   @action
   void clearSearching() {
     setSearching(null);
+    focusNode.requestFocus();
     textSearchController.clear();
+  }
+
+  @action
+  Future searchProducts() async {
+    loadingStore.active();
+    await Future.delayed(const Duration(seconds: 1));
+    products.where((test) => _filterProductList(test));
+    loadingStore.deactive();
   }
 
   void disposed() {
     textSearchController.dispose();
     focusNode.dispose();
+  }
+
+  _filterProductList(ProductModel test) {
+    if (test.title != null) {
+      test.title?.contains(search!);
+    }
   }
 }

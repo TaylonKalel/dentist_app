@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dentist_app/core/utils/is_same_day.dart';
 import 'package:dentist_app/datasources/models/product.model.dart';
-import 'package:dentist_app/formatters/currency.formatter.dart';
+import 'package:dentist_app/core/utils/formatters/currency.formatter.dart';
 import 'package:dentist_app/widget/badge.widget.dart';
 import 'package:dentist_app/widget/button.widget.dart';
 import 'package:dentist_app/widget/tabbar.widget.dart';
@@ -11,8 +11,8 @@ import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 
 class DetailPage extends StatefulWidget {
-  final ProductModel? product;
-  const DetailPage({super.key, this.product});
+  final ProductModel product;
+  const DetailPage({super.key, required this.product});
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -25,7 +25,7 @@ class _DetailPageState extends State<DetailPage> {
   void initState() {
     super.initState();
 
-    product = widget.product ?? ProductModel();
+    product = widget.product;
   }
 
   @override
