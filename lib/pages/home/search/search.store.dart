@@ -118,7 +118,7 @@ abstract class _SearchStore with Store {
     addSearch(search!);
     loadingStore.active();
     focusNode.unfocus();
-    // await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     var resultSearch = await _productRepository.getProductsBySearch(search!);
     filteredProducts.addAll(resultSearch.list ?? []);
     loadingStore.deactive();

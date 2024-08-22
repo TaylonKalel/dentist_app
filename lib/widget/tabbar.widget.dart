@@ -2,6 +2,7 @@ import 'package:dentist_app/app.store.dart';
 import 'package:dentist_app/widget/scaffold.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
 
 class TabBarWidget extends StatefulWidget {
@@ -57,26 +58,72 @@ class TabBarWidgetState extends State<TabBarWidget>
           isScrollable: true,
           tabAlignment: TabAlignment.start,
           indicatorColor: Colors.transparent,
-          tabs: const <Widget>[
+          tabs: <Widget>[
             Tab(
               text: "Home",
-              icon: Icon(Icons.home),
+              // icon: Icon(Icons.home),
+              icon: SvgPicture.asset(
+                'assets/svg/home.svg',
+                // color: Theme.of(context).iconTheme.color,
+                colorFilter: ColorFilter.mode(
+                  _tabController.index == 0 ? Colors.cyan : Colors.grey,
+                  BlendMode.srcIn,
+                ),
+                width: 28,
+                height: 28,
+              ),
             ),
             Tab(
               text: "Categorias",
-              icon: Icon(Icons.category),
+              icon: SvgPicture.asset(
+                'assets/svg/category.svg',
+                // color: Theme.of(context).iconTheme.color,
+                colorFilter: ColorFilter.mode(
+                  _tabController.index == 1 ? Colors.cyan : Colors.grey,
+                  BlendMode.srcIn,
+                ),
+                width: 28,
+                height: 28,
+              ),
             ),
             Tab(
               text: "Anunciar",
-              icon: Icon(Icons.add_circle_outline_rounded),
+              icon: SvgPicture.asset(
+                'assets/svg/new.svg',
+                // color: Theme.of(context).iconTheme.color,
+                colorFilter: ColorFilter.mode(
+                  _tabController.index == 2 ? Colors.cyan : Colors.grey,
+                  BlendMode.srcIn,
+                ),
+                width: 28,
+                height: 28,
+              ),
             ),
             Tab(
               text: "Favoritos",
-              icon: Icon(Icons.favorite_border),
+              icon: SvgPicture.asset(
+                'assets/svg/favorite.svg',
+                // color: Theme.of(context).iconTheme.color,
+                colorFilter: ColorFilter.mode(
+                  _tabController.index == 3 ? Colors.cyan : Colors.grey,
+                  BlendMode.srcIn,
+                ),
+                width: 28,
+                height: 28,
+              ),
             ),
             Tab(
               text: "Conta",
-              icon: Icon(Icons.person_outline),
+              icon: SvgPicture.asset(
+                'assets/svg/person.svg',
+                // color: Theme.of(context).iconTheme.color,
+                colorFilter: ColorFilter.mode(
+                  _tabController.index == 4 ? Colors.cyan : Colors.grey,
+                  BlendMode.srcIn,
+                ),
+                width: 28,
+                height: 28,
+              ),
             ),
           ],
         ),

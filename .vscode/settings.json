@@ -14,7 +14,7 @@
 	  "**/macos": true,
 	  "**/test": false,
 	  "**/windows": true,
-	  "**/android": true,
+	  "**/android": false,
 	  "**/build": true,
 	  "**/ios": true,
 	  "**/.vscode": false,
