@@ -6,8 +6,10 @@ class BadgeWidget extends StatelessWidget {
     super.key,
     required this.text,
     this.color,
+    this.colorText,
   });
 
+  final Color? colorText;
   final Color? color;
   final String text;
 
@@ -20,7 +22,7 @@ class BadgeWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(5)),
       child: TextWidget(
         text: text,
-        color: Colors.white,
+        color: colorText ?? Colors.white,
         fontSize: 15,
       ),
     );

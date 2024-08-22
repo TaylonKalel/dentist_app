@@ -73,10 +73,20 @@ class _DetailPageState extends State<DetailPage> {
                 ),
               ),
             const Gap(16),
-            if (product.isNew == true)
-              Container(
-                  alignment: Alignment.centerRight,
-                  child: const BadgeWidget(text: "Novo")),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    alignment: Alignment.centerRight,
+                    child: BadgeWidget(
+                        color: Colors.cyan[700], text: product.category!)),
+                if (product.isNew == true)
+                  Container(
+                      alignment: Alignment.centerRight,
+                      child:
+                          BadgeWidget(color: Colors.cyan[200], text: "Novo")),
+              ],
+            ),
             const Gap(16),
             TextWidget(
               text: product.title ?? 'Sem Título',
@@ -96,7 +106,8 @@ class _DetailPageState extends State<DetailPage> {
             if (product.discount != null)
               BadgeWidget(
                 text: "${product.discount}% OFF",
-                color: Colors.amber,
+                color: Colors.cyan[200],
+                colorText: Colors.cyan[900],
               ),
             const Gap(16),
             TextWidget(
@@ -133,7 +144,7 @@ class _DetailPageState extends State<DetailPage> {
             Center(
                 child: ButtonWidget(
               onPressed: () {},
-              color: Theme.of(context).colorScheme.primary,
+              color: Colors.cyan[900],
               child: const TextWidget(
                 text: 'Comprar Agora',
                 style: TextStyle(fontSize: 16, color: Colors.white),

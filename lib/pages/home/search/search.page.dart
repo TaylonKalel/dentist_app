@@ -9,22 +9,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:get_it/get_it.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({super.key});
+  final String? search;
+  const SearchPage({super.key, this.search});
 
   @override
   State<SearchPage> createState() => _SearchPageState();
 }
 
 class _SearchPageState extends State<SearchPage> {
-  final SearchStore _store = SearchStore();
+  late final SearchStore _store;
   late final Future _myFuture;
+  late final bool _autofocus;
 
   @override
   void initState() {
     super.initState();
+    _store = GetIt.instance<SearchStore>();
+
     _myFuture = _store.getRecentResearch();
+    if (widget.search != null) {
+      _store.clickOnRecentSearch(widget.search!).then((a) => {});
+      _autofocus = false;
+    } else {
+      _autofocus = true;
+    }
     // _store.getRecentResearch();
   }
 
@@ -52,10 +63,12 @@ class _SearchPageState extends State<SearchPage> {
             return TextFormField(
               controller: _store.textSearchController,
               enabled: true,
-              autofocus: true,
+              autofocus: _autofocus,
               focusNode: _store.focusNode,
               onChanged: _store.setSearching,
-              onEditingComplete: () => _store.searchProducts,
+              onEditingComplete: () async {
+                await _store.searchProducts();
+              },
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
@@ -124,14 +137,17 @@ class _SearchPageState extends State<SearchPage> {
       child: Stack(
         children: [
           Visibility(
-              visible: _store.products.isNotEmpty,
+              visible: _store.filteredProducts.isNotEmpty,
               child: Positioned.fill(child: producsView())),
           Visibility(
-              visible: _store.products.isEmpty && _store.search != null,
+              visible: _store.filteredProducts.isEmpty && _store.search != null,
               child: Positioned.fill(child: notFount())),
           Visibility(
               visible: _store.isVisibleRecentSearch,
               child: Positioned.fill(child: recentSearchView())),
+          Visibility(
+              visible: _store.loadingStore.isLoading,
+              child: const Positioned.fill(child: LoadingComponent())),
         ],
       ),
     );
@@ -157,23 +173,24 @@ class _SearchPageState extends State<SearchPage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (_store.products.isNotEmpty)
+          if (_store.filteredProducts.isNotEmpty)
             Container(
               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
               height: 50,
               width: MediaQuery.of(context).size.width,
               alignment: Alignment.centerLeft,
               child: TextWidget(
-                text: "${_store.products.length} Resultados encontrados",
+                text:
+                    "${_store.filteredProducts.length} Resultados encontrados",
                 fontWeight: FontWeight.w600,
               ),
             ),
           Expanded(
             child: ListView.builder(
-              itemCount: _store.products.length,
+              itemCount: _store.filteredProducts.length,
               itemExtent: 170,
               itemBuilder: (BuildContext context, int index) {
-                return _itemProducts(_store.products[index]);
+                return _itemProducts(_store.filteredProducts[index]);
               },
             ),
           ),
@@ -217,7 +234,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Widget _itemList(String item) {
     return ListTile(
-      onTap: () => _store.clickOnRecentView(item),
+      onTap: () async => await _store.clickOnRecentSearch(item),
       leading: Icon(
         Icons.history,
         color: Colors.grey[500],

@@ -40,8 +40,8 @@ class BaseModel<T extends FromJsonModel> {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['status'] = status;
     data['message'] = message;
-    data['item'] = message;
-    data['list'] = message;
+    data['item'] = item;
+    data['list'] = list;
     return data;
   }
 }

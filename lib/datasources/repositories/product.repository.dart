@@ -15,4 +15,13 @@ class ProductRepository {
       throw Exception('Failed to load products');
     }
   }
+
+  Future<BaseModel<ProductModel>> getProductsBySearch(String search) async {
+    try {
+      final data = await _productService.getBySearch(search);
+      return BaseModel<ProductModel>.fromJson(data, tipo: ProductModel());
+    } on Exception {
+      throw Exception('Failed to load products');
+    }
+  }
 }

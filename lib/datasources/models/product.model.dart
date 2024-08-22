@@ -49,7 +49,7 @@ class ProductModel extends FromJsonModel {
     data['description'] = description;
     data['price'] = price;
     data['max_installments'] = maxInstallments;
-    data['date_added'] = dateAdded;
+    data['date_added'] = dateAdded.toString();
     data['is_new'] = isNew;
     data['category'] = category;
     data['image'] = image;

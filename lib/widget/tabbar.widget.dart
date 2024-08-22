@@ -1,13 +1,14 @@
 import 'package:dentist_app/app.store.dart';
 import 'package:dentist_app/widget/scaffold.widget.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 
 class TabBarWidget extends StatefulWidget {
   final List<Widget> tabsBody;
-  const TabBarWidget({super.key, required this.tabsBody});
+  final int initialIndex;
+  const TabBarWidget(
+      {super.key, required this.tabsBody, this.initialIndex = 0});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -20,23 +21,21 @@ class TabBarWidgetState extends State<TabBarWidget>
   final AppStore _store = GetIt.instance();
 
   late final TabController _tabController;
-  late final List<Widget> _bodies;
+  late final List<Widget> _bodies = [];
 
   void setIndex(int index) {
-    if (kDebugMode) {
-      print('#COD CHAMOU O TABBAR');
-    }
     _tabController.animateTo(index);
   }
 
   @override
   void initState() {
     super.initState();
-    _bodies = widget.tabsBody;
+    _bodies.addAll(widget.tabsBody);
     while (_bodies.length < 5) {
-      _bodies.add(Container());
+      _bodies.add(widget.tabsBody[0]);
     }
-    _tabController = TabController(length: 5, vsync: this);
+    _tabController =
+        TabController(length: 5, vsync: this, initialIndex: _store.tabBarIndex);
     _tabController.addListener(() {
       _clickTabl();
     });
@@ -88,10 +87,16 @@ class TabBarWidgetState extends State<TabBarWidget>
   _clickTabl() {
     String? routeName = ModalRoute.of(context)?.settings.name;
     if (routeName != null) {
-      if (routeName != "/") {
+      if (widget.tabsBody.length < 5 && _tabController.indexIsChanging) {
         Navigator.popUntil(context, (routes) => routes.settings.name == "/");
       }
     }
     _store.setTabBarIndex(_tabController.index);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
   }
 }

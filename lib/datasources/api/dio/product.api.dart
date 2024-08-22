@@ -11,4 +11,10 @@ class DioProductService implements IProductService {
     final response = await _dio.get('products');
     return response.data;
   }
+
+  @override
+  Future<Map<String, dynamic>> getBySearch(String key) {
+    // TODO: implement getBySearch
+    throw UnimplementedError();
+  }
 }

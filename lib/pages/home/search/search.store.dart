@@ -31,12 +31,13 @@ abstract class _SearchStore with Store {
     });
   }
 
+  // List<ProductModel> products = [];
   @observable
   List<String> recentResearch = [];
   @observable
   List<String> filteredRecentResearch = [];
   @observable
-  ObservableList<ProductModel> products = ObservableList();
+  ObservableList<ProductModel> filteredProducts = ObservableList();
   @observable
   TextEditingController textSearchController = TextEditingController();
   @observable
@@ -63,28 +64,15 @@ abstract class _SearchStore with Store {
     setRecentResearch(recentSearch.list);
   }
 
-  Future getProduct() async {
-    var result = await _productRepository.getProducts();
-    if (result.list != null) {
-      setProducts(result.list!);
-    }
-    // setProducts([]);
-  }
-
   @action
-  void clickOnRecentView(String value) {
+  Future clickOnRecentSearch(String value) async {
     search = value;
     textSearchController.text = value;
+    await searchProducts();
   }
 
   @action
   void setIsVisibleRecentSearch(bool value) => isVisibleRecentSearch = value;
-
-  @action
-  void setProducts(List<ProductModel> values) {
-    products.clear();
-    products.addAll(values);
-  }
 
   @action
   void setRecentResearch(List<String> values) {
@@ -95,15 +83,20 @@ abstract class _SearchStore with Store {
   }
 
   @action
+  void addSearch(String value) {
+    recentResearch.insert(0, value);
+  }
+
+  @action
   void filterRecentResearch(String? value) {
     filteredRecentResearch.clear();
     if (value == null) {
-      filteredRecentResearch = recentResearch;
+      filteredRecentResearch.addAll(recentResearch);
       return;
     }
-    filteredRecentResearch = recentResearch
+    filteredRecentResearch.addAll(recentResearch
         .where((tex) => tex.toLowerCase().contains(value.toLowerCase()))
-        .toList();
+        .toList());
   }
 
   @action
@@ -115,26 +108,24 @@ abstract class _SearchStore with Store {
   @action
   void clearSearching() {
     setSearching(null);
-    focusNode.requestFocus();
     textSearchController.clear();
+    focusNode.requestFocus();
   }
 
   @action
   Future searchProducts() async {
+    if (search == null) return;
+    addSearch(search!);
     loadingStore.active();
-    await Future.delayed(const Duration(seconds: 1));
-    products.where((test) => _filterProductList(test));
+    focusNode.unfocus();
+    // await Future.delayed(const Duration(seconds: 2));
+    var resultSearch = await _productRepository.getProductsBySearch(search!);
+    filteredProducts.addAll(resultSearch.list ?? []);
     loadingStore.deactive();
   }
 
   void disposed() {
     textSearchController.dispose();
     focusNode.dispose();
-  }
-
-  _filterProductList(ProductModel test) {
-    if (test.title != null) {
-      test.title?.contains(search!);
-    }
   }
 }

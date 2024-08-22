@@ -6,7 +6,7 @@
             "description": "Escova de dentes com cerdas macias para limpeza suave.",
             "price": 22.90,
             "max_installments": 2,
-            "date_added": "2024-08-21",
+            "date_added": "2024-08-23",
             "is_new": true,
             "image": "https://via.placeholder.com/300x450",
             "category": "Produtos Odontológicos"
@@ -17,7 +17,7 @@
             "price": 3.50,
             "max_installments": 1,
             "discount": 10,
-            "date_added": "2024-08-21",
+            "date_added": "2024-08-22",
             "is_new": true,
             "image": "https://via.placeholder.com/300x450",
             "category": "Produtos Odontológicos"
@@ -27,7 +27,7 @@
             "description": "Enxaguante bucal para hálito fresco e proteção contra germes.",
             "price": 12.90,
             "max_installments": 3,
-            "date_added": "2024-08-20",
+            "date_added": "2024-08-22",
             "is_new": false,
             "image": "https://via.placeholder.com/300x450",
             "category": "Higiene Bucal"

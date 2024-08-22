@@ -1,3 +1,4 @@
+import 'package:dentist_app/app.store.dart';
 import 'package:dentist_app/datasources/models/category.model.dart';
 import 'package:dentist_app/pages/home/category/category.store.dart';
 import 'package:dentist_app/widget/text.widget.dart';
@@ -13,10 +14,12 @@ class CategoryPage extends StatefulWidget {
 
 class _CategoryPageState extends State<CategoryPage> {
   late final CategoryStore _store;
+  late final AppStore _appStore;
   late final Future _getCategory;
   @override
   void initState() {
     super.initState();
+    _appStore = GetIt.instance<AppStore>();
     _store = GetIt.instance<CategoryStore>();
     _getCategory = _store.getCategories();
   }
@@ -55,16 +58,23 @@ class _CategoryPageState extends State<CategoryPage> {
   }
 
   Widget _itemCategory(CategoryModel category) {
-    return Container(
-      decoration: BoxDecoration(
-          border: Border(top: BorderSide(color: Colors.grey.withOpacity(0.2)))),
-      padding: const EdgeInsets.only(left: 10),
-      alignment: Alignment.centerLeft,
-      child: TextWidget(
-        text: category.name!,
-        color: const Color(0xFF00B4CC),
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
+    return GestureDetector(
+      onTap: () {
+        _appStore.setTabBarIndex(1);
+        Navigator.of(context).pushNamed('/search', arguments: category.name);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+            border:
+                Border(top: BorderSide(color: Colors.grey.withOpacity(0.2)))),
+        padding: const EdgeInsets.only(left: 10),
+        alignment: Alignment.centerLeft,
+        child: TextWidget(
+          text: category.name!,
+          color: const Color(0xFF00B4CC),
+          fontSize: 20,
+          fontWeight: FontWeight.w500,
+        ),
       ),
     );
   }

@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class AppRouter {
   var router = (BuildContext context) => {
         '/': (context) => const HomePage(),
-        '/search': (context) => const SearchPage(),
       };
 
   Route<dynamic>? onGenerateRoute(RouteSettings settings) {
@@ -17,6 +16,17 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) {
             return DetailPage(product: product);
+          },
+          settings: settings,
+        );
+      case '/search':
+        String? search;
+        if (settings.arguments != null) {
+          search = settings.arguments as String;
+        }
+        return MaterialPageRoute(
+          builder: (context) {
+            return SearchPage(search: search);
           },
           settings: settings,
         );

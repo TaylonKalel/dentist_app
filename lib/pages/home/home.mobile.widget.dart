@@ -59,8 +59,8 @@ class _HomeMobileWidgetState extends State<HomeMobileWidget> {
             Container(
               color: Theme.of(context).colorScheme.primary,
               padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * .01,
-                  right: MediaQuery.of(context).size.width * .01,
+                  left: MediaQuery.of(context).size.width * .02,
+                  right: MediaQuery.of(context).size.width * .02,
                   top: 40,
                   bottom: 20),
               child: GestureDetector(
@@ -136,8 +136,6 @@ class _HomeMobileWidgetState extends State<HomeMobileWidget> {
                     !isSameDay(test.dateAdded, today))
                 .toList()),
       ],
-      onPressed: (p0) =>
-          {Navigator.pushNamed(context, '/detail_product', arguments: p0)},
     );
   }
 }
