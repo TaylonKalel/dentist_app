@@ -16,7 +16,7 @@
 	  "**/windows": true,
 	  "**/android": false,
 	  "**/build": true,
-	  "**/ios": true,
+	  "**/ios": false,
 	  "**/.vscode": false,
 	  "**/slidy.yaml": false,
 	  "**/README.md": true,
