@@ -2,6 +2,7 @@ import 'package:dentist_app/routes.dart';
 import 'package:dentist_app/service_locator.dart';
 import 'package:dentist_app/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
@@ -19,6 +20,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     var router = AppRouter();
     return MaterialApp(
       title: 'Flutter Demo',
