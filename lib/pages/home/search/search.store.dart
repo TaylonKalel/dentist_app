@@ -111,7 +111,6 @@ abstract class _SearchStore with Store {
   }
 
   void disposed() {
-    focusNode.dispose();
     textSearchController.dispose();
     focusNode.dispose();
   }

@@ -20,6 +20,7 @@ class TabBarWidgetState extends State<TabBarWidget>
   final AppStore _store = GetIt.instance();
 
   late final TabController _tabController;
+  late final List<Widget> _bodies;
 
   void setIndex(int index) {
     if (kDebugMode) {
@@ -31,16 +32,11 @@ class TabBarWidgetState extends State<TabBarWidget>
   @override
   void initState() {
     super.initState();
-    if (widget.tabsBody.length == 1) {
-      widget.tabsBody
-          .addAll([Container(), Container(), Container(), Container()]);
+    _bodies = widget.tabsBody;
+    while (_bodies.length < 5) {
+      _bodies.add(Container());
     }
     _tabController = TabController(length: 5, vsync: this);
-    if (kDebugMode) {
-      print(_tabController.index);
-      print(_store.tabBarIndex);
-    }
-
     _tabController.addListener(() {
       _clickTabl();
     });
@@ -55,7 +51,7 @@ class TabBarWidgetState extends State<TabBarWidget>
       return ScaffoldWidget(
         body: TabBarView(
           controller: _tabController,
-          children: widget.tabsBody,
+          children: _bodies,
         ),
         bottomNavigationBar: TabBar(
           controller: _tabController,
@@ -90,9 +86,6 @@ class TabBarWidgetState extends State<TabBarWidget>
   }
 
   _clickTabl() {
-    if (kDebugMode) {
-      print("#COD CLICKO NO TAB ${_tabController.index}");
-    }
     String? routeName = ModalRoute.of(context)?.settings.name;
     if (routeName != null) {
       if (routeName != "/") {

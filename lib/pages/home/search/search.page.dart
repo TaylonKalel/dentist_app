@@ -52,7 +52,7 @@ class _SearchPageState extends State<SearchPage> {
             return TextFormField(
               controller: _store.textSearchController,
               enabled: true,
-              autofocus: false,
+              autofocus: true,
               focusNode: _store.focusNode,
               onChanged: _store.setSearching,
               decoration: InputDecoration(
@@ -111,13 +111,6 @@ class _SearchPageState extends State<SearchPage> {
               )
             ],
           );
-          // Container(
-          //   width: MediaQuery.of(context).size.width,
-          //   alignment: Alignment.center,
-          //   child: Observer(builder: (_) {
-          //     return pageView();
-          //   }),
-          // );
         },
       ),
     );
@@ -135,9 +128,6 @@ class _SearchPageState extends State<SearchPage> {
           Visibility(
               visible: _store.products.isEmpty && _store.search != null,
               child: Positioned.fill(child: notFount())),
-          Visibility(
-              visible: _store.isVisibleRecentSearch,
-              child: Positioned.fill(child: recentSearchView())),
           // Visibility(
           //     visible: _store.isVisibleRecentSearch,
           //     maintainAnimation: true,
@@ -147,6 +137,9 @@ class _SearchPageState extends State<SearchPage> {
           //         curve: Curves.fastOutSlowIn,
           //         opacity: _store.isVisibleRecentSearch ? 1 : 0,
           //         child: Positioned.fill(child: recentSearchView()))),
+          Visibility(
+              visible: _store.isVisibleRecentSearch,
+              child: Positioned.fill(child: recentSearchView())),
         ],
       ),
     );
@@ -177,7 +170,6 @@ class _SearchPageState extends State<SearchPage> {
               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
               height: 50,
               width: MediaQuery.of(context).size.width,
-              color: Colors.grey[100],
               alignment: Alignment.centerLeft,
               child: TextWidget(
                 text: "${_store.products.length} Resultados encontrados",

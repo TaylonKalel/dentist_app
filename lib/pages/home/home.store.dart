@@ -1,3 +1,6 @@
+import 'package:dentist_app/datasources/models/product.model.dart';
+import 'package:dentist_app/datasources/repositories/product.repository.dart';
+import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
 
 part 'home.store.g.dart';
@@ -6,11 +9,13 @@ part 'home.store.g.dart';
 class HomeStore = _HomeStore with _$HomeStore;
 
 abstract class _HomeStore with Store {
-  @observable
-  int value = 0;
+  final ProductRepository _productService = GetIt.instance();
+
+  ObservableList<ProductModel> producs = ObservableList();
 
   @action
-  void increment() {
-    value++;
+  Future getProducts() async {
+    var r = await _productService.getProducts();
+    producs.addAll(r.list!);
   }
 }

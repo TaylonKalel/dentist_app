@@ -19,7 +19,9 @@ class ProductComponent extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-          border: Border(top: BorderSide(color: Colors.grey.withOpacity(0.2)))),
+          border: Border(
+              top: BorderSide(color: Colors.grey.withOpacity(0.2)),
+              bottom: BorderSide(color: Colors.grey.withOpacity(0.2)))),
       padding: const EdgeInsets.only(top: 10),
       child: SizedBox(
         width: MediaQuery.of(context).size.width,
@@ -48,7 +50,7 @@ class ProductComponent extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           vertical: 3, horizontal: 8),
                       decoration: BoxDecoration(
-                          color: Colors.cyan,
+                          color: Theme.of(context).colorScheme.primary,
                           borderRadius: BorderRadius.circular(5)),
                       child: TextWidget(
                         text: "${product.discount}% OFF",
@@ -82,7 +84,7 @@ class ProductComponent extends StatelessWidget {
                     TextWidget(
                       text:
                           "Em até ${product.maxInstallments}x de R\$ ${CurrencyPtBrInputFormatter.currencyFormatter(product.monthlyValue)}",
-                      color: Colors.cyan,
+                      color: Theme.of(context).colorScheme.primary,
                       fontSize: 14,
                     ),
                   if (product.isNew == true)

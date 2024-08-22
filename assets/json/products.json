@@ -6,7 +6,7 @@
             "description": "Escova de dentes com cerdas macias para limpeza suave.",
             "price": 22.90,
             "max_installments": 2,
-            "date_added": "2024-08-10",
+            "date_added": "2024-08-21",
             "is_new": true,
             "image": "https://via.placeholder.com/300x450"
         },
@@ -16,7 +16,7 @@
             "price": 3.50,
             "max_installments": 1,
             "discount": 10,
-            "date_added": "2024-08-08",
+            "date_added": "2024-08-21",
             "is_new": true,
             "image": "https://via.placeholder.com/300x450"
         },
@@ -25,7 +25,7 @@
             "description": "Enxaguante bucal para hálito fresco e proteção contra germes.",
             "price": 12.90,
             "max_installments": 3,
-            "date_added": "2024-08-05",
+            "date_added": "2024-08-20",
             "is_new": false,
             "image": "https://via.placeholder.com/300x450"
         },
@@ -34,7 +34,7 @@
             "description": "Fio dental para remoção eficaz da placa bacteriana entre os dentes.",
             "price": 6.99,
             "max_installments": 2,
-            "date_added": "2024-08-01",
+            "date_added": "2024-08-20",
             "is_new": false,
             "image": "https://via.placeholder.com/300x450"
         },
@@ -43,7 +43,7 @@
             "description": "Kit de tiras clareadoras para dentes mais brancos em poucos dias.",
             "price": 59.90,
             "max_installments": 5,
-            "date_added": "2024-08-11",
+            "date_added": "2024-08-20",
             "is_new": true,
             "image": "https://via.placeholder.com/300x450"
         },

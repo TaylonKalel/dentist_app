@@ -8,7 +8,7 @@ class ProductModel extends FromJsonModel {
   int? maxInstallments;
   int? discount;
   double? monthlyValue;
-  String? dateAdded;
+  DateTime? dateAdded;
   bool? isNew;
   String? image;
 
@@ -28,7 +28,7 @@ class ProductModel extends FromJsonModel {
     price = json['price'];
     newPrice = price;
     maxInstallments = json['max_installments'];
-    dateAdded = json['date_added'];
+    dateAdded = DateTime.tryParse(json['date_added']);
     isNew = json['is_new'];
     discount = json['discount'];
     image = json['image'];
